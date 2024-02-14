@@ -1,19 +1,18 @@
+import router from "src/router";
+
 export default {
     login(username, password) {
-        // Convert sensitive information into jargon
         const params = {
             username: btoa(username),
-            password: btoa(password)
+            password: btoa(password),
         }
 
-        localStorage.setItem('username', params.username);
+        return params.username;
     },
     logout() {
-        // Clear username
-        localStorage.removeItem('username');
+        localStorage.removeItem("username");
+        localStorage.setItem("isAuthenticated", false);
 
-        window.sessionStorage.removeItem("path");
-        window.sessionStorage.removeItem("query");
-        window.sessionStorage.removeItem("hash");
+        router.push('/login');
     }
 }

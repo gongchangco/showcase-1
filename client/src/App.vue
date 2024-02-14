@@ -1,24 +1,18 @@
-<script setup>
-  import UserHeader from './components/UserHeader.vue'
-</script>
-
 <template>
-  <div class="w-full h-full flex">
-    <div class="w-full h-full">
-      <UserHeader />
-      <router-view />
-    </div>
-  </div>
+  <router-view />
 </template>
 
 <script>
-  export default {
-    name: 'App',
-    components: { UserHeader },
-    watch: {
-      '$route'(to) {
-        document.title = to.meta.title ? `${to.meta.title} | IMS` : "IMS";
-      }
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'App',
+  setup() {
+    return {
+      login() {
+        this.$router.push('/');
+      },
     }
   }
+})
 </script>
