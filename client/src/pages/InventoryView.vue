@@ -1,5 +1,5 @@
 <template>
-    <h1>Yes</h1>
+    <h3>Yes</h3>
     <InventoryList />
 </template>
 <script>

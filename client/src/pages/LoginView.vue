@@ -53,7 +53,6 @@ export default {
             // Check for the 'redirect' query parameter and navigate accordingly
             const redirect = this.$route.query.redirect || '/';
             this.$router.push(redirect);
-            this.$emit('login');
         }
 
         return {

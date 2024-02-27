@@ -1,6 +1,9 @@
 <template>
   <q-layout view="hHh lpR lfr">
-    <q-header elevated>
+    <q-header
+      elevated
+      v-if="isAuthenticated"
+    >
       <q-toolbar>
         <q-btn
           flat
@@ -20,7 +23,6 @@
             label="Settings"
           >
             <div class="text-h6">Settings</div>
-            <q-seperator />
             <q-btn
               color="primary"
               label="Logout"
@@ -86,10 +88,12 @@ export default defineComponent({
   },
   setup () {
     const leftDrawerOpen = ref(false)
+    const isAuthenticated = localStorage.getItem("isAuthenticated") === 'true'
 
     return {
       routes: routes,
       leftDrawerOpen,
+      isAuthenticated,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       }

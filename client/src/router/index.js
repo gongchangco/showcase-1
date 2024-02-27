@@ -32,6 +32,8 @@ export default route(function (/* { store, ssrContext } */) {
 
     if (to.name !== 'login' && !isAuthenticated) {
       next({ name: 'login'})
+    } else if (to.name === 'login' && isAuthenticated) {
+      next({ name: 'home' })
     } else {
       next()
     }
